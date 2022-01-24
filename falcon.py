@@ -14,5 +14,8 @@ class Falcon:
             route = Route(**route)
             if route.origin not in routes:
                 routes[route.origin] = {}
+            if route.destination not in routes:
+                routes[route.destination] = {}
             routes[route.origin][route.destination] = route.travel_time
+            routes[route.destination][route.origin] = route.travel_time
         return routes
